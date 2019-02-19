@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Vue Brew Dog</title>
+	<script src="./js/bundle.js"></script>
+</head>
+<body>
+
+	<h1>Brew Dog</h1>
+
+	<div id="app">
+
+		<label for="beer_select">Select a Beer</label>
+		<select v-on:change="getBeerById"  id="beer_select" v-model="selectedBeerIndex">
+			<option v-for="(beer, index) in beers" :value="index">{{ beer.name }}</option>
+		</select>
+
+		<div id="selected-beer" v-if="selectedBeer">
+			<h2>{{ selectedBeer.name }}</h2>
+			<p>{{ selectedBeer.tagline }}</p>
+			<p>ABV: {{ selectedBeer.abv }}</p>
+			<img :src="selectedBeer.image_url" :alt="selectedBeer.name">
+			<p>{{ selectedBeer.description }}</p>
+			<button v-on:click="addFavourite">Add to favourite</button>
+		</div>
+
+		<ul id="favourite-beer">
+			<li v-for="(beer, index) in favouriteBeers">{{ beer.name }} <button v-on:click="deleteFavourite(index)">Delete</button></li>
+		</ul>
+
+
+	</div>
+</body>
+</html>
