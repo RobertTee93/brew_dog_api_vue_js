@@ -19,9 +19,21 @@ h4, h5 {
 }
 
 
-#favourite-beer li{
-  list-style: none;
+#favourite-beer {
+  /* width: 60%; */
+  text-align: center;
+  margin: auto;
+}
+
+#favourite-beer p{
   padding: 20px;
+  display: inline-block;
+  border: 1px solid black;
+  min-width: 250px;
+  max-width: 250px;
+  height: 50px;
+  margin: 3px;
+  border-radius: 10px;
 }
 
 #favourite-beer button{
