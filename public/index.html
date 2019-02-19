@@ -3,6 +3,8 @@
 <head>
 	<title>Vue Brew Dog</title>
 	<script src="./js/bundle.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Arapey" rel="stylesheet">
 </head>
 <body>
 
@@ -20,13 +22,30 @@
 			<p>{{ selectedBeer.tagline }}</p>
 			<p>ABV: {{ selectedBeer.abv }}</p>
 			<img :src="selectedBeer.image_url" :alt="selectedBeer.name">
-			<p>{{ selectedBeer.description }}</p>
+			<p id="description">{{ selectedBeer.description }}</p>
+
+			<h4>Ingredients</h4>
+			<h5>Hops</h5>
+			<p v-for="ingredient in selectedBeer.ingredients.hops">
+				{{ ingredient.name }} {{ ingredient.attribute }}: {{ ingredient.amount["value"]}} {{ ingredient.amount["unit"]}}
+				Add at: {{ ingredient.add}}
+			</p>
+
+			<h5>Malt</h5>
+			<p v-for="ingredient in selectedBeer.ingredients.malt">
+				{{ ingredient.name }}: {{ ingredient.amount["value"] }} {{ ingredient.amount["unit"] }}
+			</p>
+
+			<h5>Yeast</h5>
+			<p>{{ selectedBeer.ingredients["yeast"] }}</p>
+
 			<button v-on:click="addFavourite">Add to favourite</button>
 		</div>
 
-		<ul id="favourite-beer">
-			<li v-for="(beer, index) in favouriteBeers">{{ beer.name }} <button v-on:click="deleteFavourite(index)">Delete</button></li>
-		</ul>
+		<h3>Favourite Drinks</h3><hr>
+		<div id="favourite-beer">
+			<p v-for="(beer, index) in favouriteBeers">{{ beer.name }} <button v-on:click="deleteFavourite(index)">Delete</button></p>
+		</div>
 
 
 	</div>

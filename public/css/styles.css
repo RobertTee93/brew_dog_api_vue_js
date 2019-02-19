@@ -1,0 +1,32 @@
+* {
+  font-family: 'Arapey', serif;
+}
+
+img {
+  width: 150px;
+  height: 450px;
+}
+
+body {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+h4, h5 {
+  text-decoration: underline;
+}
+
+
+#favourite-beer li{
+  list-style: none;
+  padding: 20px;
+}
+
+#favourite-beer button{
+  list-style: none;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
